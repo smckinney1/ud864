@@ -25,11 +25,29 @@
           center: {lat: 40.7413549, lng: -73.9980244},
           zoom: 13
         });
+
+        //Adding a marker to the map
+        var tribeca = {lat: 40.719526, lng: -74.0089934};
+        var marker = new google.maps.Marker({
+          position: tribeca,
+          map: map,
+          title: 'First marker!'
+        });
+
+        //Creating an info window for the marker; need to add an event listener to listen for click on the marker
+        var infoWindow = new google.maps.InfoWindow({
+          content: 'Hello world!'
+        });
+
+        //Adding event listener to marker
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
       }
     </script>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&v=3&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs9yngCe6bL0VDv8Ost1EVmAD1sq_ppJI&v=3&callback=initMap">
     </script>
 
   </body>
